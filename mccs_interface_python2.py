@@ -4,7 +4,7 @@ import re
 import json
 import shutil
 
-DEBUG_ENABLED = True
+DEBUG_ENABLED = False
 
 ################################################################
 # class Ccf
@@ -55,7 +55,7 @@ class Host(object):
                 print("stdout      =", result["output"])
                 print("----------------------------------------------\n\n")
 
-            return json.loads(result["output"])
+            return json.loads(result["output"], strict=False)
 
         except Exception as err:
             print("error:", err)
